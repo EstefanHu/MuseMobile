@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Home } from '../views/home';
 import { Story } from '../views/story';
 
+import { GenreSetter } from '../components/genreSetter';
+
 const Stack = createStackNavigator();
 
 export const HomeStack = () => {
@@ -11,7 +13,7 @@ export const HomeStack = () => {
       <Stack.Screen
         name='Home'
         options={{
-          // header: () => null
+          header: () => <GenreSetter />
         }}
         component={Home}
       />

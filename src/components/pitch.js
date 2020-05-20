@@ -28,7 +28,9 @@ export const Pitch = ({ genre, author, credibility, title, description, navigati
 
 const styles = StyleSheet.create({
   pitch: {
-    padding: 10,
+    paddingHorizontal: 15,
+    paddingTop: 15,
+    paddingBottom: 5,
     marginHorizontal: 15,
     marginVertical: 5,
     backgroundColor: 'white',
