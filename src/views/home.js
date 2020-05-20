@@ -1,17 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Text,
-  Button
+  Button,
+  FlatList
 } from 'react-native';
 import { Center } from '../components/center.js';
-import { AuthContext } from '../auth/authProvider.js';
+import faker from 'faker';
 
 export const Home = () => {
-  const { logout } = useContext(AuthContext);
   return (
     <Center>
-      <Text>Home</Text>
-      <Button title='Logout' onPress={() => logout()} />
+      <FlatList
+      style={{width: '100%'}}
+        renderItem={({ item }) => {
+          return <Button title={item} onPress={() => { }} />
+        }}
+        keyExtractor={(product, idx) => product + idx}
+        data={Array.from(Array(50), () => faker.commerce.product())}
+      />
     </Center>
   );
 };

@@ -1,17 +1,15 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, Button } from 'react-native';
-import { Center } from '../components/center';
 import {
   Octicons,
   Fontisto,
   MaterialCommunityIcons,
   Ionicons
 } from '@expo/vector-icons';
-import { Home } from '../views/home.js';
-import { Map } from '../views/map.js';
-import { Library } from '../views/library.js';
-import { Profile } from '../views/profile.js';
+import { HomeStack } from '../stacks/homeStack';
+import { MapStack } from '../stacks/mapStack';
+import { LibraryStack } from '../stacks/libraryStack';
+import { ProfileStack } from '../stacks/profileStack';
 
 const Tabs = createBottomTabNavigator();
 
@@ -36,10 +34,10 @@ export const AppTabs = () => {
         inactiveTintColor: 'gray',
       }}
     >
-      <Tabs.Screen name='Home' component={Home} />
-      <Tabs.Screen name='Map' component={Map} />
-      <Tabs.Screen name='Library' component={Library} />
-      <Tabs.Screen name='Profile' component={Profile} />
+      <Tabs.Screen name='Home' component={HomeStack} />
+      <Tabs.Screen name='Map' component={MapStack} />
+      <Tabs.Screen name='Library' component={LibraryStack} />
+      <Tabs.Screen name='Profile' component={ProfileStack} />
     </Tabs.Navigator>
   );
 };
