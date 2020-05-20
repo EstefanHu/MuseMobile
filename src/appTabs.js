@@ -1,58 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, Button } from 'react-native';
 import { Center } from './center';
-import { AuthContext } from './authProvider';
 import {
   Octicons,
   Fontisto,
   MaterialCommunityIcons,
   Ionicons
 } from '@expo/vector-icons';
+import { Home } from './views/home.js';
+import { Map } from './views/map.js';
+import { Library } from './views/library.js';
+import { Profile } from './views/profile.js';
 
 const Tabs = createBottomTabNavigator();
-
-function Home() {
-  const { logout } = useContext(AuthContext);
-  return (
-    <Center>
-      <Text>Home</Text>
-      <Button title='Logout' onPress={() => logout()} />
-    </Center>
-  )
-};
-
-function Map() {
-  return (
-    <Center>
-      <Text>Map</Text>
-    </Center>
-  )
-}
-
-function Library() {
-  return (
-    <Center>
-      <Text>Library</Text>
-    </Center>
-  )
-}
-
-function Profile() {
-  return (
-    <Center>
-      <Text>Profile</Text>
-    </Center>
-  )
-}
 
 export const AppTabs = () => {
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ _, color, size }) => {
-          let iconName;
-
           if (route.name === 'Home') {
             return <Octicons name={'home'} size={size} color={color} />;
           } else if (route.name === 'Map') {
