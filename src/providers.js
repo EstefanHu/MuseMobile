@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthProvider } from './authProvider';
+import { AuthProvider } from './auth/authProvider';
 import { Routes } from './routes';
 
 export const Providers = () => {
@@ -8,4 +8,4 @@ export const Providers = () => {
       <Routes />
     </AuthProvider>
   );
-};
+};  

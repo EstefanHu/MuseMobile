@@ -4,11 +4,11 @@ import {
   AsyncStorage
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext } from './authProvider';
+import { AuthContext } from './auth/authProvider';
 
-import { Center } from './center';
-import { AppTabs } from './appTabs';
-import { AuthStack } from './authStack';
+import { Center } from './components/center';
+import { AppTabs } from './layout/appTabs';
+import { AuthStack } from './auth/authStack';
 
 export const Routes = () => {
   const { user, login } = useContext(AuthContext);

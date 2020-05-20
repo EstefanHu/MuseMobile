@@ -1,17 +1,17 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, Button } from 'react-native';
-import { Center } from './center';
+import { Center } from '../components/center';
 import {
   Octicons,
   Fontisto,
   MaterialCommunityIcons,
   Ionicons
 } from '@expo/vector-icons';
-import { Home } from './views/home.js';
-import { Map } from './views/map.js';
-import { Library } from './views/library.js';
-import { Profile } from './views/profile.js';
+import { Home } from '../views/home.js';
+import { Map } from '../views/map.js';
+import { Library } from '../views/library.js';
+import { Profile } from '../views/profile.js';
 
 const Tabs = createBottomTabNavigator();
 

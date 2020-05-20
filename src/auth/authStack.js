@@ -4,7 +4,7 @@ import {
   Button
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Center } from './center';
+import { Center } from '../components/center';
 import { AuthContext } from './authProvider';
 
 

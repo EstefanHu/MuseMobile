@@ -3,8 +3,8 @@ import {
   Text,
   Button
 } from 'react-native';
-import { Center } from '../center.js';
-import { AuthContext } from '../authProvider.js';
+import { Center } from '../components/center.js';
+import { AuthContext } from '../auth/authProvider.js';
 
 export const Home = () => {
   const { logout } = useContext(AuthContext);
