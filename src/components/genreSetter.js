@@ -36,7 +36,7 @@ export const GenreSetter = () => {
           <TouchableOpacity
             key={item}
             style={styles.button}
-            onPress={() => setGenre({ item })}
+            onPress={() => setGenre(item)}
           >
             <Text style={styles.content}>{item}</Text>
           </TouchableOpacity>
@@ -58,8 +58,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15,
     backgroundColor: 'white',
-    paddingTop: 50,
+    paddingTop: 55,
     paddingBottom: 10,
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 1,
   },
   scroll: {
     display: 'flex',

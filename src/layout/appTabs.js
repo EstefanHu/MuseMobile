@@ -16,7 +16,7 @@ import { ProfileStack } from '../stacks/profileStack';
 const Tabs = createBottomTabNavigator();
 
 export const AppTabs = () => {
-  const [genre, setGenre] = useState('');
+  const [genre, setGenre] = useState('All');
 
   return (
     <GenreContext.Provider value={{ genre, setGenre }}>
