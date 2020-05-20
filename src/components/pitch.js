@@ -18,7 +18,9 @@ export const Pitch = ({ genre, author, credibility, title, description, navigati
       <Button
         style={styles.more}
         title='More'
-        onPress={() => {navigation.navigate('Story')}}
+        onPress={() => {
+          navigation.navigate('Story', { title })
+        }}
       />
     </View>
   );

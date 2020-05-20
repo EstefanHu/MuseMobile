@@ -9,7 +9,7 @@ import { Pitch } from '../components/pitch.js';
 
 import faker from 'faker';
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   const { logout } = useContext(AuthContext);
   return (
     <Center>
@@ -27,6 +27,7 @@ export const Home = () => {
               credibility={item[2]}
               title={item[3]}
               description={item[4]}
+              navigation={navigation}
             />
           )
         }}
