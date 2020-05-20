@@ -49,9 +49,6 @@ function Register({ navigation }) {
 export const AuthStack = () => {
   return (
     <Stack.Navigator
-      // screenOptions={{
-      //   header: () => null
-      // }}
       initialRouteName='Login'
     >
       <Stack.Screen
@@ -64,7 +61,6 @@ export const AuthStack = () => {
       <Stack.Screen
         name='Register'
         options={{
-          // header: () => null
           headerTitle: 'Sign up'
         }}
         component={Register}

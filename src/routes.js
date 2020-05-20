@@ -11,7 +11,7 @@ import { AppTabs } from './layout/appTabs';
 import { AuthStack } from './auth/authStack';
 
 export const Routes = () => {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +26,10 @@ export const Routes = () => {
         console.log(err);
         setLoading(false);
       });
+
+    return () => {
+      logout();
+    }
   }, [])
 
   if (loading) {

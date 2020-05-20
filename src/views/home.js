@@ -4,6 +4,8 @@ import {
   FlatList
 } from 'react-native';
 import { Center } from '../components/center.js';
+import { Pitch } from '../components/pitch.js';
+
 import faker from 'faker';
 
 export const Home = ({ navigation }) => {
@@ -13,13 +15,12 @@ export const Home = ({ navigation }) => {
         style={{ width: '100%' }}
         renderItem={({ item }) => {
           return (
-            <Button
+            <Pitch
+              genre={'Fiction'}
+              author={'Me'}
+              credibility={0}
               title={item}
-              onPress={() => {
-                navigation.navigate('Story', {
-                  title: item
-                });
-              }}
+              description={item}
             />
           )
         }}
