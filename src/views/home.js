@@ -8,7 +8,7 @@ import { Pitch } from '../components/pitch.js';
 
 import faker from 'faker';
 
-export const Home = ({ navigation }) => {
+export const Home = () => {
   return (
     <Center>
       <FlatList
