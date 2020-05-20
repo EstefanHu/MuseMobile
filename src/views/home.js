@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
-  Button,
-  FlatList
+  FlatList,
+  Button
 } from 'react-native';
+import { AuthContext } from '../auth/authProvider';
 import { Center } from '../components/center.js';
 import { Pitch } from '../components/pitch.js';
 
 import faker from 'faker';
 
 export const Home = () => {
+  const { logout } = useContext(AuthContext);
   return (
     <Center>
+      <Button
+        title='logout'
+        onPress={() => logout()}
+      />
       <FlatList
         style={{ width: '100%' }}
         renderItem={({ item }) => {

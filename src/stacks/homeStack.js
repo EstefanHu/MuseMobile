@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 
 export const HomeStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Home'>
       <Stack.Screen
         name='Home'
         options={{
@@ -15,7 +15,10 @@ export const HomeStack = () => {
         }}
         component={Home}
       />
-      <Stack.Screen name='Story' component={Story} />
+      <Stack.Screen
+        name='Story'
+        component={Story}
+      />
     </Stack.Navigator>
   );
 };
