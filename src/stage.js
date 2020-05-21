@@ -9,7 +9,7 @@ import { AuthContext } from './providers/authProvider';
 
 import { Center } from './components/center';
 import { AppTabs } from './layout/appTabs';
-import { AuthStack } from './auth/authStack';
+import { AuthStack } from './stacks/authStack';
 
 export const Stage = () => {
   const { updateLocation } = useContext(LocationContext);

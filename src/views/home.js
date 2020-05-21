@@ -3,7 +3,7 @@ import {
   FlatList,
 } from 'react-native';
 import { Pitch } from '../components/pitch.js';
-import { GenreContext } from '../contex';
+import { GenreContext } from '../providers/genreProvider.js';
 
 import faker from 'faker';
 
