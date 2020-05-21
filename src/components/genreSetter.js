@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   StyleSheet,
   View,
@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import { GenreContext } from '../contex.js';
+import { GenreContext } from '../providers/genreProvider';
 import { AntDesign } from '@expo/vector-icons'
 
 export const GenreSetter = () => {

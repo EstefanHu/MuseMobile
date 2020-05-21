@@ -2,12 +2,15 @@ import React from 'react';
 import { LocationProvider } from './providers/locationProvider';
 import { AuthProvider } from './providers/authProvider';
 import { Stage } from './stage';
+import { GenreProvider } from './providers/genreProvider';
 
 export const Providers = () => {
   return (
     <LocationProvider>
       <AuthProvider>
-        <Stage />
+        <GenreProvider>
+          <Stage />
+        </GenreProvider>
       </AuthProvider>
     </LocationProvider>
   );
