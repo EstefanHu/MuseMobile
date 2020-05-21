@@ -3,7 +3,7 @@ import {
   Text,
   Button
 } from 'react-native';
-import { Center } from '../../components/center';
+import { Center } from '../components/center';
 
 export const Register = ({navigation}) => {
   return (

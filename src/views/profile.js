@@ -3,7 +3,7 @@ import {
   Text,
   Button
 } from 'react-native';
-import { AuthContext } from '../auth/authProvider';
+import { AuthContext } from '../providers/authProvider';
 
 import { Center } from '../components/center.js';
 

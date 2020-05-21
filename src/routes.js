@@ -4,7 +4,7 @@ import {
   AsyncStorage
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext } from './auth/authProvider';
+import { AuthContext } from './providers/authProvider';
 
 import { Center } from './components/center';
 import { AppTabs } from './layout/appTabs';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MapView from 'react-native-maps';
 import {
   StyleSheet,
@@ -7,9 +7,19 @@ import {
 } from 'react-native';
 
 export const Map = () => {
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+
+    })
+  }, []);
+
   return (
     <View style={styles.container}>
-      <MapView style={styles.mapStyle} />
+      <MapView
+        style={styles.mapStyle}
+        showsUserLocation={true}
+      />
     </View>
   );
 };

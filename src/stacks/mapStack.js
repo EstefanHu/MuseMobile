@@ -8,7 +8,13 @@ const Stack = createStackNavigator();
 export const MapStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Map' component={Map} />
+      <Stack.Screen
+        name='Map'
+        options={{
+          header: () => null
+        }}
+        component={Map}
+      />
       <Stack.Screen name='Story' component={Story} />
     </Stack.Navigator>
   )
