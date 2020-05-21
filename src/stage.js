@@ -29,12 +29,13 @@ export const Stage = () => {
         setLoading(false);
       });
 
+    updateLocation()
+
     return () => {
       logout();
     }
   }, []);
 
-  useEffect(() => updateLocation(), []);
 
   if (loading) {
     return (

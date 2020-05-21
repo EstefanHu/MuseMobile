@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   StyleSheet,
   View,
@@ -17,7 +17,7 @@ export const Story = ({ route, navigation }) => {
         onPress={() => console.log('hello')} // TODO: Convert to navigation to user profile
       >Author: {route.params.author}</Text>
       <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
-      {/* TODO: change button to logically change to rremove from library if it is in library */}
+
       <Button
         style={styles.save}
         title='Save to Library'
