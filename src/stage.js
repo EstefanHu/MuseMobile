@@ -4,13 +4,15 @@ import {
   AsyncStorage
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { LocationContext } from './providers/locationProvider';
 import { AuthContext } from './providers/authProvider';
 
 import { Center } from './components/center';
 import { AppTabs } from './layout/appTabs';
 import { AuthStack } from './auth/authStack';
 
-export const Routes = () => {
+export const Stage = () => {
+  const { updateLocation } = useContext(LocationContext);
   const { user, login, logout } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +32,9 @@ export const Routes = () => {
     return () => {
       logout();
     }
-  }, [])
+  }, []);
+
+  useEffect(() => updateLocation(), []);
 
   if (loading) {
     return (

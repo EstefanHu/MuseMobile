@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       login: () => {
         const fakeUser = { userName: 'Bob'}
         setUser(fakeUser);
-        // TODO: Add error handling
         AsyncStorage.setItem('user', JSON.stringify(fakeUser));
       },
       logout: () => {

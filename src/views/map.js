@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { LocationContext } from '../providers/locationProvider';
 import MapView from 'react-native-maps';
 import {
   StyleSheet,
+  Text,
   View,
   Dimensions
 } from 'react-native';
 
 export const Map = () => {
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-
-    })
-  }, []);
-
+  const { longitude, latitude } = useContext(LocationContext);
   return (
     <View style={styles.container}>
       <MapView
         style={styles.mapStyle}
         showsUserLocation={true}
+        initialRegion={{
+          latitude,
+          longitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
       />
     </View>
   );
