@@ -46,7 +46,8 @@ export const Stage = () => {
 
   return (
     <NavigationContainer>
-      {user ? <AppTabs /> : <AuthStack />}
+      {/* {user ? <AppTabs /> : <AuthStack />} */}
+      <AppTabs />
     </NavigationContainer>
   );
 }

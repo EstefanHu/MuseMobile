@@ -19,7 +19,7 @@ export const Pitch = ({ genre, author, credibility, title, description, navigati
         style={styles.more}
         title='More'
         onPress={() => {
-          navigation.navigate('Story', { title })
+          navigation.navigate('Story', { genre, author, credibility, title, description })
         }}
       />
     </View>
