@@ -1,3 +1,3 @@
-import { Providers } from './src/providers';
+import { Context } from './src/context';
 
-export default Providers;
+export default Context;
