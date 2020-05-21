@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   Octicons,
@@ -6,6 +6,10 @@ import {
   MaterialCommunityIcons,
   Ionicons
 } from '@expo/vector-icons';
+import { LocationContext } from '../providers/locationProvider';
+import { FeedContext } from '../providers/feedProvider';
+import { LibraryContext } from '../providers/libraryProvider';
+import { PortfolioContext } from '../providers/portfolioProvider';
 
 import { HomeStack } from '../stacks/homeStack';
 import { MapStack } from '../stacks/mapStack';
@@ -15,6 +19,22 @@ import { ProfileStack } from '../stacks/profileStack';
 const Tabs = createBottomTabNavigator();
 
 export const AppTabs = () => {
+  const { longitude, latitude } = useContext(LocationContext);
+  const { setFeed } = useContext(FeedContext);
+  const { setLibrary } = useContext(LibraryContext);
+  const { setPortfolio } = useContext(PortfolioContext);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(res => res.json())
+      .then(res => {
+        setFeed(res);
+        setLibrary(res);
+        setPortfolio(res);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({

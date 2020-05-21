@@ -15,6 +15,7 @@ export const Stage = () => {
   const { updateLocation } = useContext(LocationContext);
   const { user, login, logout } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
+  const [hasFeed, setHasFeed] = useState(false);
 
   useEffect(() => {
     // check if logged in or not
@@ -28,7 +29,7 @@ export const Stage = () => {
         console.log(err);
         setLoading(false);
       });
-
+    
     updateLocation()
 
     return () => {
@@ -36,6 +37,12 @@ export const Stage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!hasFeed) {
+      console.log('feed');
+      setHasFeed(true);
+    }
+  }, [hasFeed]);
 
   if (loading) {
     return (
