@@ -17,15 +17,16 @@ export const Story = ({ route, navigation }) => {
         onPress={() => console.log('hello')} // TODO: Convert to navigation to user profile
       >Author: {route.params.author}</Text>
       <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
-      <Button 
+      <Button
         style={styles.save}
         title='Save to Library'
         onPress={() => console.log('saving....')}
       />
       <Button
-      style={styles.engage}
-      title='Begin Story'
-      onPress={() => navigation.navigate('Map')}
+        style={styles.engage}
+        title='Begin Story'
+        onPress={() => console.log('starting...')}
+      />
     </View>
   );
 };
