@@ -15,34 +15,21 @@ export const Stage = () => {
   const { updateLocation } = useContext(LocationContext);
   const { user, login, logout } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
-  const [hasFeed, setHasFeed] = useState(false);
 
   useEffect(() => {
     // check if logged in or not
     AsyncStorage.getItem('user')
       .then(userString => {
-        if (userString) {
-          login();
-        }
-        setLoading(false);
-      }).catch(err => {
-        console.log(err);
-        setLoading(false);
-      });
-    
+        if (userString) login();
+      })
+      .catch(console.error);
     updateLocation()
+    setLoading(false);
 
     return () => {
       logout();
     }
   }, []);
-
-  useEffect(() => {
-    if (!hasFeed) {
-      console.log('feed');
-      setHasFeed(true);
-    }
-  }, [hasFeed]);
 
   if (loading) {
     return (
@@ -54,8 +41,8 @@ export const Stage = () => {
 
   return (
     <NavigationContainer>
-      {/* {user ? <AppTabs /> : <AuthStack />} */}
-      <AppTabs />
+      {user ? <AppTabs /> : <AuthStack />}
+      {/* <AppTabs /> */}
     </NavigationContainer>
   );
 }

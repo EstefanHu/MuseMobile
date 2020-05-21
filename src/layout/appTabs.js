@@ -25,14 +25,16 @@ export const AppTabs = () => {
   const { setPortfolio } = useContext(PortfolioContext);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(res => {
-        setFeed(res);
-        setLibrary(res);
-        setPortfolio(res);
-      })
-      .catch(console.error);
+    if (longitude && latitude) {
+      fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(res => res.json())
+        .then(res => {
+          setFeed(res);
+          setLibrary(res);
+          setPortfolio(res);
+        })
+        .catch(console.error);
+    }
   }, []);
 
   return (
