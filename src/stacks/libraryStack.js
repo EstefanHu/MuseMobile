@@ -3,12 +3,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Library } from '../views/library';
 import { Story } from '../views/story';
 
+import { GenreSetter } from '../components/genreSetter';
+
 const Stack = createStackNavigator();
 
 export const LibraryStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Library' component={Library} />
+      <Stack.Screen
+        name='Library'
+        options={{
+          header: () => <GenreSetter />
+        }}
+        component={Library}
+      />
       <Stack.Screen name='Story' component={Story} />
     </Stack.Navigator>
   );
