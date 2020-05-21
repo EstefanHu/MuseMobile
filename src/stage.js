@@ -26,9 +26,8 @@ export const Stage = () => {
     updateLocation()
     setLoading(false);
 
-    return () => {
-      logout();
-    }
+    // TODO: change to keep user logged in
+    return () => logout();
   }, []);
 
   if (loading) {
