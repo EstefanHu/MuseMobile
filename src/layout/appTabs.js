@@ -37,6 +37,13 @@ export const AppTabs = () => {
     }
   }, []);
 
+  useEffect(() => {
+    fetch('http://192.168.1.10:4000/api')
+      .then(res => res.json())
+      .then(console.log)
+      .catch(console.error);
+  }, []);
+
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({
