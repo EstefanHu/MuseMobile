@@ -6,9 +6,11 @@ import { Pitch } from '../components/pitch.js';
 import { GenreContext } from '../providers/genreProvider.js';
 
 import faker from 'faker';
+import { FeedContext } from '../providers/feedProvider.js';
 
 export const Home = ({ navigation }) => {
   const { genre } = useContext(GenreContext);
+  const { feed } = useContext(FeedContext);
 
   return (
     <FlatList
@@ -16,25 +18,17 @@ export const Home = ({ navigation }) => {
       renderItem={({ item }) => {
         return item.genre === genre || genre == 'All' ? (
           <Pitch
-            genre={item[0]}
-            author={item[1]}
-            credibility={item[2]}
-            title={item[3]}
-            description={item[4]}
+            genre={item.genre}
+            author={item.author}
+            credibility={item.credibility}
+            title={item.title}
+            description={item.description}
             navigation={navigation}
           />
         ) : null
       }}
       keyExtractor={(product, idx) => product + idx}
-      data={Array.from(Array(50),
-        () => [
-          faker.lorem.word(),
-          faker.name.firstName(),
-          faker.random.number(),
-          faker.lorem.words(),
-          faker.lorem.sentence(),
-        ]
-      )}
+      data={feed}
     />
   );
 };
