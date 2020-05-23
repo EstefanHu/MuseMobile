@@ -26,22 +26,15 @@ export const AppTabs = () => {
 
   useEffect(() => {
     if (longitude && latitude) {
-      fetch('https://jsonplaceholder.typicode.com/posts')
+      fetch('http://192.168.1.10:4000/mobile/base')
         .then(res => res.json())
         .then(res => {
-          setFeed(res);
-          setLibrary(res);
-          setPortfolio(res);
+          setFeed(res.feed);
+          setLibrary(res.library);
+          setPortfolio(res.portfolio);
         })
         .catch(console.error);
     }
-  }, []);
-
-  useEffect(() => {
-    fetch('http://192.168.1.10:4000/api')
-      .then(res => res.json())
-      .then(console.log)
-      .catch(console.error);
   }, []);
 
   return (
