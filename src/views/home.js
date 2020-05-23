@@ -5,7 +5,6 @@ import {
 import { Pitch } from '../components/pitch.js';
 import { GenreContext } from '../providers/genreProvider.js';
 
-import faker from 'faker';
 import { FeedContext } from '../providers/feedProvider.js';
 
 export const Home = ({ navigation }) => {

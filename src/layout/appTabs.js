@@ -25,16 +25,14 @@ export const AppTabs = () => {
   const { setPortfolio } = useContext(PortfolioContext);
 
   useEffect(() => {
-    if (longitude && latitude) {
-      fetch('http://192.168.1.10:4000/mobile/base')
-        .then(res => res.json())
-        .then(res => {
-          setFeed(res.feed);
-          setLibrary(res.library);
-          setPortfolio(res.portfolio);
-        })
-        .catch(console.error);
-    }
+    fetch('http://192.168.1.10:4000/mobile/base')
+      .then(res => res.json())
+      .then(res => {
+        setFeed(res.feed);
+        setLibrary(res.library);
+        setPortfolio(res.portfolio);
+      })
+      .catch(console.error);
   }, []);
 
   return (
