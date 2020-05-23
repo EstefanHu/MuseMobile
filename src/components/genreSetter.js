@@ -17,8 +17,11 @@ export const GenreSetter = () => {
     'Poetry',
     'Non-Fiction',
     'Speculative',
+    'YA',
+    'Religion',
+    'Sci-Fi',
+    'Fantasy',
     'Essay',
-
   ]
 
   return (
