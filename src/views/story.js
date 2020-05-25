@@ -21,7 +21,12 @@ export const Story = ({ route, navigation }) => {
       <Button
         style={styles.save}
         title='Save to Library'
-        onPress={() => console.log('saving....')}
+        onPress={() => {
+          fetch('http://192.168.1.10:4000/mobile/test')
+            .then(res => res.json())
+            .then(console.log)
+            .catch(console.error)
+        }}
       />
       <Button
         style={styles.engage}
