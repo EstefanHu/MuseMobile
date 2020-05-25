@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   StyleSheet,
   View,
   Text,
   Button
 } from 'react-native';
+import { LibraryContext } from '../providers/libraryProvider';
 
 export const Story = ({ route, navigation }) => {
+  const { library } = useContext(LibraryContext);
+
+  useEffect(() => {
+    console.log(library);
+  }) 
+
   return (
     <View>
       <Text style={styles.title}>{route.params.title}</Text>

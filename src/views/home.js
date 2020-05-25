@@ -1,18 +1,11 @@
-import React, { useContext, useEffect } from 'react';
-import {
-  FlatList,
-} from 'react-native';
+import React, { useContext } from 'react';
+import { FlatList } from 'react-native';
 import { Pitch } from '../components/pitch.js';
 
 import { FeedContext } from '../providers/feedProvider.js';
 
 export const Home = ({ route, navigation }) => {
-  // const { genre } = useContext(GenreContext);
   const { feed } = useContext(FeedContext);
-
-  useEffect(() => {
-    console.log(route.params.genre)
-  }, [route.params?.genre])
 
   return (
     <FlatList
