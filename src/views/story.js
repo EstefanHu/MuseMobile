@@ -6,13 +6,14 @@ import {
   Button
 } from 'react-native';
 import { LibraryContext } from '../providers/libraryProvider';
+import { LibraryToggler } from '../components/libraryToggler.js';
 
 export const Story = ({ route, navigation }) => {
   const { library } = useContext(LibraryContext);
 
   useEffect(() => {
     console.log(library);
-  }) 
+  })
 
   return (
     <View>
@@ -24,17 +25,7 @@ export const Story = ({ route, navigation }) => {
         onPress={() => console.log('hello')} // TODO: Convert to navigation to user profile
       >Author: {route.params.author}</Text>
       <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
-
-      <Button
-        style={styles.save}
-        title='Save to Library'
-        onPress={() => {
-          fetch('http://192.168.1.10:4000/mobile/test')
-            .then(res => res.json())
-            .then(console.log)
-            .catch(console.error)
-        }}
-      />
+      <LibraryToggler />
       <Button
         style={styles.engage}
         title='Begin Story'
