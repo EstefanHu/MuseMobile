@@ -4,12 +4,29 @@ import {
   View,
   Text,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Button,
 } from 'react-native';
 import { AuthContext } from '../providers/authProvider';
 
 export const Login = ({ navigation }) => {
   const { login } = useContext(AuthContext);
+
+  const attemptLogin = () => {
+    fetch('http://192.168.1.10:4000/mobile/test')
+      .then(res => res.json())
+      .then(console.log)
+      .catch(console.error);
+  }
+
+  const developmentlogin = () => {
+    fetch('http://192.168.1.10:4000/mobile/test')
+      .then(res => res.json())
+      .then(res => {
+        if (res) login();
+      })
+      .catch(console.error);
+  }
 
   return (
     <View style={styles.container}>
@@ -28,9 +45,17 @@ export const Login = ({ navigation }) => {
           secureTextEntry={true}
           placeholderTextColor="#ffffff"
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={attemptLogin}
+        >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+        <Button
+          style={styles.button}
+          title={'Auto Login'}
+          onPress={developmentlogin}
+        />
       </View>
       <View style={styles.signupTextCont}>
         <Text style={styles.signupText}>Don't have an account yet?</Text>
