@@ -31,7 +31,11 @@ export const Story = ({ route, navigation }) => {
       <Button
         style={styles.engage}
         title='Begin Story'
-        onPress={() => navigation.navigate('Path', {screen: 'Launch'})}
+        onPress={() =>
+          navigation.navigate('Path', {
+            screen: 'Launch'
+          })
+        }
       />
     </View>
   );

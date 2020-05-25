@@ -13,9 +13,12 @@ export const HomeStack = () => {
       <Stack.Screen
         name='Home'
         options={{
-          header: () => <GenreSetter />
+          header: ({navigation}) => <GenreSetter
+            navigation={navigation}
+          />
         }}
         component={Home}
+        initialParams={{ genre : 'All' }}
       />
       <Stack.Screen
         name='Story'

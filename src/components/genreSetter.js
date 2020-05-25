@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -6,11 +6,9 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import { GenreContext } from '../providers/genreProvider';
 import { AntDesign } from '@expo/vector-icons'
 
-export const GenreSetter = () => {
-  const { setGenre } = useContext(GenreContext);
+export const GenreSetter = ({ navigation }) => {
   const genres = [
     'All',
     'Fiction',
@@ -39,7 +37,7 @@ export const GenreSetter = () => {
           <TouchableOpacity
             key={item}
             style={styles.button}
-            onPress={() => setGenre(item)}
+            onPress={() => navigation.navigate('Home', { genre: item })}
           >
             <Text style={styles.content}>{item}</Text>
           </TouchableOpacity>
@@ -50,7 +48,7 @@ export const GenreSetter = () => {
         size={20}
         color='black'
       />
-    </View>
+    </View >
   );
 };
 

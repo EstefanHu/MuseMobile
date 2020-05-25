@@ -29,7 +29,6 @@ export const AppTabs = () => {
     fetch('http://192.168.1.10:4000/mobile/base')
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         setFeed(res.feed);
         setLibrary(res.library);
         setPortfolio(res.portfolio);

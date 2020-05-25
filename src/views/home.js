@@ -1,21 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   FlatList,
 } from 'react-native';
 import { Pitch } from '../components/pitch.js';
-import { GenreContext } from '../providers/genreProvider.js';
 
 import { FeedContext } from '../providers/feedProvider.js';
 
-export const Home = ({ navigation }) => {
-  const { genre } = useContext(GenreContext);
+export const Home = ({ route, navigation }) => {
+  // const { genre } = useContext(GenreContext);
   const { feed } = useContext(FeedContext);
+
+  useEffect(() => {
+    console.log(route.params.genre)
+  }, [route.params?.genre])
 
   return (
     <FlatList
       style={{ width: '100%', height: '100%' }}
       renderItem={({ item }) => {
-        return item.genre === genre || genre == 'All' ? (
+        return item.genre === route.params.genre || route.params.genre == 'All' ? (
           <Pitch
             genre={item.genre}
             author={item.author}
