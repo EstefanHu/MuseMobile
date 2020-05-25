@@ -13,6 +13,7 @@ import { PortfolioContext } from '../providers/portfolioProvider';
 
 import { HomeStack } from '../stacks/homeStack';
 import { MapStack } from '../stacks/mapStack';
+import { PathStack } from '../stacks/pathStack';
 import { LibraryStack } from '../stacks/libraryStack';
 import { ProfileStack } from '../stacks/profileStack';
 
@@ -25,7 +26,7 @@ export const AppTabs = () => {
   const { setPortfolio } = useContext(PortfolioContext);
 
   useEffect(() => {
-    fetch('http://192.168.1.2:4000/mobile/base')
+    fetch('http://192.168.1.10:4000/mobile/base')
       .then(res => res.json())
       .then(res => {
         console.log(res);
@@ -44,6 +45,10 @@ export const AppTabs = () => {
             return <Octicons name={'home'} size={size} color={color} />;
           } else if (route.name === 'Map') {
             return <Fontisto name={'map'} size={size} color={color} />;
+          } else if (route.name === 'Path') {
+            if (true) return <MaterialCommunityIcons name={'triangle'} size={size} color={color} />
+
+            return <MaterialCommunityIcons name={'triangle-outline'} size={size} coloe={color} />
           } else if (route.name === 'Library') {
             return <MaterialCommunityIcons name={'library-shelves'} size={size} color={color} />
           } else if (route.name === 'Profile') {
@@ -58,6 +63,7 @@ export const AppTabs = () => {
     >
       <Tabs.Screen name='Home' component={HomeStack} />
       <Tabs.Screen name='Map' component={MapStack} />
+      <Tabs.Screen name='Path' component={PathStack} />
       <Tabs.Screen name='Library' component={LibraryStack} />
       <Tabs.Screen name='Profile' component={ProfileStack} />
     </Tabs.Navigator>
