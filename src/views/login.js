@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 80,
     fontWeight: 'bold',
-    color: 'rgb(255,50,50)'
+    // color: 'rgb(255,50,50)'
   },
   signupTextCont: {
     flexGrow: 1,
