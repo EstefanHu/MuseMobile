@@ -3,8 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Library } from '../views/library';
 import { Story } from '../views/story';
 
-import { GenreSetter } from '../components/genreSetter';
-
 const Stack = createStackNavigator();
 
 export const LibraryStack = () => {
@@ -13,7 +11,7 @@ export const LibraryStack = () => {
       <Stack.Screen
         name='Library'
         options={{
-          header: () => <GenreSetter />
+          header: () => null
         }}
         component={Library}
       />

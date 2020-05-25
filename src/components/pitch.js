@@ -6,20 +6,20 @@ import {
   Button
 } from 'react-native';
 
-export const Pitch = ({ id, genre, author, authorId, credibility, title, description, navigation }) => {
+export const Pitch = ({ story, navigation }) => {
   return (
     <View style={styles.pitch}>
       <View style={styles.header}>
-        <Text>{genre} by {author}</Text>
-        <Text>{credibility}</Text>
+        <Text>{story.genre} by {story.author}</Text>
+        <Text>{story.credibility}</Text>
       </View>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description}>{description}</Text>
+      <Text style={styles.title}>{story.title}</Text>
+      <Text style={styles.description}>{story.description}</Text>
       <Button
         style={styles.more}
         title='More'
         onPress={() => {
-          navigation.navigate('Story', { id, genre, author, authorId, credibility, title, description })
+          navigation.navigate('Story', { story })
         }}
       />
     </View>

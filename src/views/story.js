@@ -10,14 +10,14 @@ import {
 } from 'react-native';
 import { LibraryContext } from '../providers/libraryProvider';
 
-export const Story = ({ route, navigation }) => {
+export const Story = ({ route , navigation }) => {
   const { library } = useContext(LibraryContext);
   const [isSaved, setIsSaved] = useState(null); //TODO: Correct initial state
 
   useEffect(() => {
     let fromRoute = false;
     library.forEach(item => {
-      if (item._id === route.params.id) fromRoute = true;
+      if (item._id === route.params.story.id) fromRoute = true;
     });
 
     setIsSaved(fromRoute);
@@ -36,16 +36,17 @@ export const Story = ({ route, navigation }) => {
   }
 
   return (
+    // TODO: Make code NOT UGLY
     <ScrollView style={styles.container}>
       <View style={styles.information}>
-        <Text style={styles.title}>{route.params.title}</Text>
-        <Text style={styles.description}>{route.params.description}</Text>
+        <Text style={styles.title}>{route.params.story.title}</Text>
+        <Text style={styles.description}>{route.params.story.description}</Text>
         <Text
           style={styles.author}
-          onPress={() => console.log(route.params.authorId)} // TODO: Convert to navigation to user profile
-        >Author: {route.params.author}</Text>
-        <Text style={styles.genre}>Genre: {route.params.genre}</Text>
-        <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
+          onPress={() => console.log(route.params.story.authorId)} // TODO: Convert to navigation to user profile
+        >Author: {route.params.story.author}</Text>
+        <Text style={styles.genre}>Genre: {route.params.story.genre}</Text>
+        <Text style={styles.credibility}>Credibility: {route.params.story.credibility}</Text>
         <View style={styles.library}>
           <Text style={styles.libraryTag}>Saved to Library</Text>
           <Switch
@@ -61,7 +62,8 @@ export const Story = ({ route, navigation }) => {
         title='Begin Story'
         onPress={() =>
           navigation.navigate('Path', {
-            screen: 'Launch'
+            screen: 'Launch',
+            story: route.params.story
           })
         }
       />
