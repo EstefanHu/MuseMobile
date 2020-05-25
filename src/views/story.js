@@ -1,19 +1,37 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  Button
+  Button,
+  Switch,
 } from 'react-native';
 import { LibraryContext } from '../providers/libraryProvider';
-import { LibraryToggler } from '../components/libraryToggler.js';
 
 export const Story = ({ route, navigation }) => {
   const { library } = useContext(LibraryContext);
+  const [isSaved, setIsSaved] = useState(null); //TODO: Correct initial state
 
   useEffect(() => {
-    console.log(library);
-  })
+    let fromRoute = false;
+    library.forEach(item => {
+      if (item._id === route.params.id) fromRoute = true
+    });
+    
+    setIsSaved(fromRoute);
+  }, []);
+
+  const UpdateLibrary = () => {
+    let uri = 'http://192.168.1.10:4000/mobile/addToLibrary';
+    if (isSaved) uri = 'http://192.168.1.10:4000/mobile/removeFromLibrary';
+    fetch(uri, {
+      method: 'POST'
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(console.error);
+    setIsSaved(isSaved => !isSaved)
+  }
 
   return (
     <View>
@@ -25,7 +43,15 @@ export const Story = ({ route, navigation }) => {
         onPress={() => console.log(route.params.authorId)} // TODO: Convert to navigation to user profile
       >Author: {route.params.author}</Text>
       <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
-      <LibraryToggler />
+      <View style={styles.library}>
+        <Text>Saved to Library</Text>
+        <Switch
+          trackColor={{ false: "#767577", true: "rgb(255,0,0)" }}
+          thumbColor={'white'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={() => UpdateLibrary()}
+          value={isSaved} />
+      </View>
       <Button
         style={styles.engage}
         title='Begin Story'
@@ -46,5 +72,9 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 30
+  },
+  library: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   }
 });
