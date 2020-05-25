@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
   StyleSheet,
+  ScrollView,
   View,
   Text,
   Button,
   Switch,
+  Dimensions,
 } from 'react-native';
 import { LibraryContext } from '../providers/libraryProvider';
 
@@ -15,9 +17,9 @@ export const Story = ({ route, navigation }) => {
   useEffect(() => {
     let fromRoute = false;
     library.forEach(item => {
-      if (item._id === route.params.id) fromRoute = true
+      if (item._id === route.params.id) fromRoute = true;
     });
-    
+
     setIsSaved(fromRoute);
   }, []);
 
@@ -34,23 +36,25 @@ export const Story = ({ route, navigation }) => {
   }
 
   return (
-    <View>
-      <Text style={styles.title}>{route.params.title}</Text>
-      <Text style={styles.description}>{route.params.description}</Text>
-      <Text style={styles.genre}>Genre: {route.params.genre}</Text>
-      <Text
-        style={styles.author}
-        onPress={() => console.log(route.params.authorId)} // TODO: Convert to navigation to user profile
-      >Author: {route.params.author}</Text>
-      <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
-      <View style={styles.library}>
-        <Text>Saved to Library</Text>
-        <Switch
-          trackColor={{ false: "#767577", true: "rgb(255,0,0)" }}
-          thumbColor={'white'}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={() => UpdateLibrary()}
-          value={isSaved} />
+    <ScrollView style={styles.container}>
+      <View style={styles.information}>
+        <Text style={styles.title}>{route.params.title}</Text>
+        <Text style={styles.description}>{route.params.description}</Text>
+        <Text
+          style={styles.author}
+          onPress={() => console.log(route.params.authorId)} // TODO: Convert to navigation to user profile
+        >Author: {route.params.author}</Text>
+        <Text style={styles.genre}>Genre: {route.params.genre}</Text>
+        <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
+        <View style={styles.library}>
+          <Text style={styles.libraryTag}>Saved to Library</Text>
+          <Switch
+            trackColor={{ false: "#767577", true: "rgb(255,0,0)" }}
+            thumbColor={'white'}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={() => UpdateLibrary()}
+            value={isSaved} />
+        </View>
       </View>
       <Button
         style={styles.engage}
@@ -61,20 +65,38 @@ export const Story = ({ route, navigation }) => {
           })
         }
       />
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-
+    paddingTop: 25,
+    paddingHorizontal: 15,
+  },
+  information: {
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 30
+    fontSize: 35
+  },
+  description: {
+    fontSize: 20,
+  },
+  author: {
+    fontSize: 20
+  },
+  genre: {
+    fontSize: 20
+  },
+  credibility: {
+    fontSize: 20
   },
   library: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  libraryTag: {
+    fontSize: 20
   }
 });
