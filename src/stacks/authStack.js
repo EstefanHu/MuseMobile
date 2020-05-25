@@ -11,7 +11,7 @@ export const AuthStack = () => {
       <Stack.Screen
         name='Login'
         options={{
-          headerTitle: 'Sign in'
+          header: () => null
         }}
         component={Login}
       />

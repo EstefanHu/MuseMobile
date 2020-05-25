@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   TextInput,
   Button,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 import { AuthContext } from '../providers/authProvider';
 
@@ -29,50 +31,55 @@ export const Login = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.formContainer} >
-        <TextInput style={styles.inputBox}
-          underlineColorAndroid='rgba(0,0,0,0)'
-          placeholder="Email"
-          placeholderTextColor="#ffffff"
-          selectionColor="#fff"
-          keyboardType="email-address"
-          onSubmitEditing={() => console.log('testing')}
-        />
-        <TextInput style={styles.inputBox}
-          underlineColorAndroid='rgba(0,0,0,0)'
-          placeholder="Password"
-          secureTextEntry={true}
-          placeholderTextColor="#ffffff"
-        />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={attemptLogin}
-        >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <Button
-          style={styles.button}
-          title={'Auto Login'}
-          onPress={developmentlogin}
-        />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View style={styles.container}>
+        <View style={styles.formContainer} >
+          <Text style={styles.logo}>:Muse</Text>
+          <TextInput style={styles.inputBox}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Email Address"
+            keyboardType="email-address"
+            onSubmitEditing={() => console.log('testing')}
+          />
+          <TextInput style={styles.inputBox}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={attemptLogin}
+          >
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+          <Button
+            style={styles.button}
+            title={'Auto Login'}
+            onPress={developmentlogin}
+          />
+        </View>
+        <View style={styles.signupTextCont}>
+          <Text style={styles.signupText}>Don't have an account yet?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <Text style={styles.signupButton}> Sign up!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.signupTextCont}>
-        <Text style={styles.signupText}>Don't have an account yet?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-          <Text style={styles.signupButton}> Signup</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#455a64',
+    backgroundColor: 'white',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  logo: {
+    fontSize: 80,
+    fontWeight: 'bold',
+    color: 'rgb(255,50,50)'
   },
   signupTextCont: {
     flexGrow: 1,
@@ -82,11 +89,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   signupText: {
-    color: 'rgba(255,255,255,0.6)',
     fontSize: 16
   },
   signupButton: {
-    color: '#ffffff',
+    color: '#a8a8a8',
     fontSize: 16,
     fontWeight: '500'
   },
@@ -97,23 +103,23 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     width: 300,
-    backgroundColor: 'rgba(255, 255,255,0.2)',
+    backgroundColor: '#ebebeb',
     borderRadius: 25,
     paddingHorizontal: 16,
+    paddingVertical: 13,
     fontSize: 16,
-    color: '#ffffff',
     marginVertical: 10
   },
   button: {
     width: 300,
-    backgroundColor: '#1c313a',
+    backgroundColor: 'rgb(255, 50, 50)',
     borderRadius: 25,
     marginVertical: 10,
     paddingVertical: 13
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center'
   }
