@@ -22,7 +22,7 @@ export const Story = ({ route, navigation }) => {
       <Text style={styles.genre}>Genre: {route.params.genre}</Text>
       <Text
         style={styles.author}
-        onPress={() => console.log('hello')} // TODO: Convert to navigation to user profile
+        onPress={() => console.log(route.params.authorId)} // TODO: Convert to navigation to user profile
       >Author: {route.params.author}</Text>
       <Text style={styles.credibility}>Credibility: {route.params.credibility}</Text>
       <LibraryToggler />

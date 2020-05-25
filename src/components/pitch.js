@@ -6,7 +6,7 @@ import {
   Button
 } from 'react-native';
 
-export const Pitch = ({ genre, author, credibility, title, description, navigation }) => {
+export const Pitch = ({ genre, author, authorId, credibility, title, description, navigation }) => {
   return (
     <View style={styles.pitch}>
       <View style={styles.header}>
@@ -19,7 +19,7 @@ export const Pitch = ({ genre, author, credibility, title, description, navigati
         style={styles.more}
         title='More'
         onPress={() => {
-          navigation.navigate('Story', { genre, author, credibility, title, description })
+          navigation.navigate('Story', { genre, author, authorId, credibility, title, description })
         }}
       />
     </View>

@@ -15,6 +15,7 @@ export const Home = ({ route, navigation }) => {
           <Pitch
             genre={item.genre}
             author={item.author}
+            authorId={item.authorId}
             credibility={item.credibility}
             title={item.title}
             description={item.description}
