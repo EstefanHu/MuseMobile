@@ -22,6 +22,5 @@ export const FeedProvider = ({ children }) => {
     }}>
       {children}
     </FeedContext.Provider>
-  )
-}
-
+  );
+};
