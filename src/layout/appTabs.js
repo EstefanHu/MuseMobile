@@ -16,6 +16,7 @@ import { MapStack } from '../stacks/mapStack';
 import { PathStack } from '../stacks/pathStack';
 import { LibraryStack } from '../stacks/libraryStack';
 import { ProfileStack } from '../stacks/profileStack';
+import { CurrentContext } from '../providers/currentProvider';
 
 const Tabs = createBottomTabNavigator();
 
@@ -24,6 +25,7 @@ export const AppTabs = () => {
   const { setFeed } = useContext(FeedContext);
   const { setLibrary } = useContext(LibraryContext);
   const { setPortfolio } = useContext(PortfolioContext);
+  const { current } = useContext(CurrentContext);
 
   useEffect(() => {
     fetch('http://192.168.1.10:4000/mobile/base')
@@ -45,9 +47,8 @@ export const AppTabs = () => {
           } else if (route.name === 'Map') {
             return <Fontisto name={'map'} size={size} color={color} />;
           } else if (route.name === 'Path') {
-            if (true) return <MaterialCommunityIcons name={'triangle'} size={size} color={color} />
-
-            return <MaterialCommunityIcons name={'triangle-outline'} size={size} coloe={color} />
+            if (current) return <MaterialCommunityIcons name={'triangle'} size={size} color={color} />
+            return <MaterialCommunityIcons name={'triangle-outline'} size={size} color={color} />
           } else if (route.name === 'Library') {
             return <MaterialCommunityIcons name={'library-shelves'} size={size} color={color} />
           } else if (route.name === 'Profile') {
