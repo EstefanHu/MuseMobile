@@ -6,12 +6,13 @@ import {
   Text,
   Button,
   Switch,
-  Dimensions,
 } from 'react-native';
 import { LibraryContext } from '../providers/libraryProvider';
+import { CurrentContext } from '../providers/currentProvider';
 
-export const Story = ({ route , navigation }) => {
+export const Story = ({ route, navigation }) => {
   const { library } = useContext(LibraryContext);
+  const { setCurrent } = useContext(CurrentContext);
   const [isSaved, setIsSaved] = useState(null); //TODO: Correct initial state
 
   useEffect(() => {
@@ -60,12 +61,10 @@ export const Story = ({ route , navigation }) => {
       <Button
         style={styles.engage}
         title='Begin Story'
-        onPress={() =>
-          navigation.navigate('Path', {
-            screen: 'Launch',
-            story: route.params.story
-          })
-        }
+        onPress={() => {
+          setCurrent(route.params.story);
+          navigation.navigate('Path', { screen: 'Launch' })
+        }}
       />
     </ScrollView>
   );

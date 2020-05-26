@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   StyleSheet,
   View,
@@ -25,7 +25,6 @@ export const Launch = ({ navigation }) => {
           longitudeDelta: 0.0421,
         }}
       >
-
       </MapView>
     </View>
   );

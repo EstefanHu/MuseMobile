@@ -13,10 +13,13 @@ export const FeedProvider = ({ children }) => {
     <FeedContext.Provider value={{
       feed,
       setFeed,
-      refreshFeed: () => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+      refreshFeed: (refreshCallback) => {
+        fetch('http://192.168.1.10:4000/mobile/refreshLibrary')
           .then(res => res.json())
-          .then(res => setFeed(res))
+          .then(res => {
+            if (!res.err) setFeed(res.payload);
+            refreshCallback();
+          })
           .catch(console.error);
       },
     }}>

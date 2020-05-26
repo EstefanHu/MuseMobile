@@ -6,7 +6,6 @@ import {
   MaterialCommunityIcons,
   Ionicons
 } from '@expo/vector-icons';
-import { LocationContext } from '../providers/locationProvider';
 import { FeedContext } from '../providers/feedProvider';
 import { LibraryContext } from '../providers/libraryProvider';
 import { PortfolioContext } from '../providers/portfolioProvider';
@@ -21,7 +20,6 @@ import { CurrentContext } from '../providers/currentProvider';
 const Tabs = createBottomTabNavigator();
 
 export const AppTabs = () => {
-  const { longitude, latitude } = useContext(LocationContext);
   const { setFeed } = useContext(FeedContext);
   const { setLibrary } = useContext(LibraryContext);
   const { setPortfolio } = useContext(PortfolioContext);
