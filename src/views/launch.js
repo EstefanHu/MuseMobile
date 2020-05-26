@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text
 } from 'react-native';
+import { CurrentContext } from '../providers/currentProvider.js';
 
 export const Launch = ({ route, navigation }) => {
-  const [hasStory, setHasStory] = useState();
+  const { current } = useContext(CurrentContext);
 
-  useEffect(() => {
-    if (route.params !== null) return setHasStory(true);
-    setHasStory(false);
-    console.log(route.params);
-  }, [route.params?.story]);
-
-  return hasStory ? (
+  return current ?
     <View>
       <Text>There is!</Text>
     </View>
-  ) : (
+    :
     <View>
       <Text>Hello From Launch</Text>
     </View>
-  )
+
 };
