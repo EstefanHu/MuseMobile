@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   ScrollView,
+  TouchableOpacity
 } from 'react-native';
 
 import { GenreButton } from './genreButton';

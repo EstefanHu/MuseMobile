@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleSheet,
-  View,
   Text,
   TouchableOpacity,
 } from 'react-native';
@@ -9,22 +8,19 @@ import {
 export const GenreButton = ({ children, navigation }) => {
   return (
     <TouchableOpacity
-      onPress={
-        () =>
-          navigation.navigate('Home', { genre: children })
-      }
+      style={styles.button}
+      onPress={() =>
+        navigation.navigate('Home', { genre: children })}
     >
-      <View style={styles.container}>
-        <Text style={styles.content}>
-          {children}
-        </Text>
-      </View>
+      <Text style={styles.content}>
+        {children}
+      </Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  button: {
     flex: 1,
     borderWidth: 1,
     borderColor: 'lightgrey',
@@ -35,6 +31,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   content: {
-    fontSize: 14
+    fontSize: 14,
+    color: 'black',
   }
 });
