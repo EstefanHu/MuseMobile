@@ -3,10 +3,9 @@ import {
   StyleSheet,
   View,
   ScrollView,
-  TouchableOpacity,
-  Text,
 } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'
+
+import { GenreButton } from './genreButton';
 
 export const GenreSetter = ({ navigation }) => {
   const genres = [
@@ -24,30 +23,17 @@ export const GenreSetter = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <AntDesign
-        name={'left'}
-        size={20}
-        color='black'
-      />
       <ScrollView
         horizontal={true}
         style={styles.scroll}
+        showsHorizontalScrollIndicator={false}
       >
         {genres.map(item => (
-          <TouchableOpacity
-            key={item}
-            style={styles.button}
-            onPress={() => navigation.navigate('Home', { genre: item })}
-          >
-            <Text style={styles.content}>{item}</Text>
-          </TouchableOpacity>
+          <GenreButton navigation={navigation}>
+            {item}
+          </GenreButton>
         ))}
       </ScrollView>
-      <AntDesign
-        name={'right'}
-        size={20}
-        color='black'
-      />
     </View >
   );
 };
@@ -57,7 +43,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 15,
     backgroundColor: 'white',
     paddingTop: 55,
     paddingBottom: 10,
@@ -67,12 +52,6 @@ const styles = StyleSheet.create({
   scroll: {
     display: 'flex',
     flexDirection: 'row',
-    marginHorizontal: 10,
   },
-  button: {
-    marginHorizontal: 10,
-  },
-  content: {
-    fontSize: 20
-  }
+
 });
