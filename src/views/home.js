@@ -13,13 +13,6 @@ export const Home = ({ route, navigation }) => {
       renderItem={({ item }) => {
         return item.genre === route.params.genre || route.params.genre == 'All' ? (
           <Pitch
-            // id={item._id}
-            // genre={item.genre}
-            // author={item.author}
-            // authorId={item.authorId}
-            // credibility={item.credibility}
-            // title={item.title}
-            // description={item.description}
             story={item}
             navigation={navigation}
           />

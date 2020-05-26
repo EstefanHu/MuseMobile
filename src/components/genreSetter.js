@@ -29,7 +29,10 @@ export const GenreSetter = ({ navigation }) => {
         showsHorizontalScrollIndicator={false}
       >
         {genres.map(item => (
-          <GenreButton navigation={navigation}>
+          <GenreButton
+            key={item}
+            navigation={navigation}
+          >
             {item}
           </GenreButton>
         ))}
@@ -52,6 +55,6 @@ const styles = StyleSheet.create({
   scroll: {
     display: 'flex',
     flexDirection: 'row',
-  },
-
+    paddingHorizontal: 5,
+  }
 });

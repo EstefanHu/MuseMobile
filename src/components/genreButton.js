@@ -8,19 +8,18 @@ import {
 
 export const GenreButton = ({ children, navigation }) => {
   return (
-    <View
-      key={children}
-      style={styles.container}
+    <TouchableOpacity
+      onPress={
+        () =>
+          navigation.navigate('Home', { genre: children })
+      }
     >
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Home', { genre: children })}
-      >
+      <View style={styles.container}>
         <Text style={styles.content}>
           {children}
         </Text>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -32,13 +31,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     backgroundColor: '#f0f0f0',
     borderRadius: 20,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  button: {
-
+    paddingHorizontal: 12,
+    paddingVertical: 6,
   },
   content: {
-    fontSize: 15
+    fontSize: 14
   }
 });

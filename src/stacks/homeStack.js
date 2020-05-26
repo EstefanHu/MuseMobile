@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 export const HomeStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName='Home'
+      // initialRouteName='Home'
     >
       <Stack.Screen
         name='Home'
