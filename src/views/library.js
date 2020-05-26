@@ -15,11 +15,7 @@ export const Library = ({ navigation }) => {
       renderItem={({ item }) => {
         return (
           <Pitch
-            genre={item.genre}
-            author={item.author}
-            credibility={item.credibility}
-            title={item.title}
-            description={item.description}
+            story={item}
             navigation={navigation}
           />
         )

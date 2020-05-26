@@ -30,13 +30,11 @@ export const Register = ({ navigation }) => {
           <TextInput style={styles.inputBox}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="First Name"
-            keyboardType="First Name"
             onSubmitEditing={() => console.log('testing')}
           />
           <TextInput style={styles.inputBox}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Last Name"
-            keyboardType="Last Name"
             onSubmitEditing={() => console.log('testing')}
           />
           <TextInput style={styles.inputBox}
