@@ -17,8 +17,8 @@ export const Map = ({ children }) => {
         style={styles.mapStyle}
         showsUserLocation={true}
         initialRegion={{
-          latitude,
-          longitude,
+          latitude: latitude || 47.6859,
+          longitude: longitude || -122.2994,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
