@@ -13,11 +13,10 @@ export const BottomSheet = ({ children }) => {
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
-      
+
       onPanResponderGrant: () => {
-        pan.setOffset({
-          y: pan.y._value
-        });
+        console.log('hello');
+        pan.setOffset({ y: pan.y._value });
       },
       onPanResponderMove: Animated.event([null, { dy: pan.y }]),
       onPanResponderRelease: () => {
@@ -31,6 +30,9 @@ export const BottomSheet = ({ children }) => {
       style={{
         transform: [{ translateY: pan.y }],
         position: 'absolute',
+        width: '100%',
+        bottom: 0,
+        top: 10
       }}
       {...panResponder.panHandlers}
     >
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(255,255,255,0.8)',
-    width: Dimensions.get('window').width,
+    width: '100%',
     borderRadius: 10,
     alignItems: 'center',
     padding: 5
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#b8b8b8',
     width: 40,
     height: 5,
-    marginTop: 10,
+    marginTop: 5,
     borderRadius: 10,
   }
 });

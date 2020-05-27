@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Map } from '../views/map';
 import { Story } from '../views/story';
+import { MapView } from '../views/mapView';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,7 @@ export const MapStack = () => {
         options={{
           header: () => null
         }}
-        component={Map}
+        component={MapView}
       />
       <Stack.Screen name='Story' component={Story} />
     </Stack.Navigator>
